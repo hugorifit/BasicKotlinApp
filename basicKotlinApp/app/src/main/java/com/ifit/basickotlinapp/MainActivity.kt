@@ -3,6 +3,9 @@ package com.ifit.basickotlinapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.ifit.basickotlinapp.adapter.SuperHeroAdapter
 //import androidx.recyclerview.widget.LinearLayoutManager
 //import androidx.recyclerview.widget.RecyclerView
 //import com.ifit.basickotlinapp.adapter.PersonAdapter
@@ -19,11 +22,12 @@ class MainActivity : AppCompatActivity() {
     //var data = listOf("1", "2", "2")
 
 
-    fun initRecyclerView(){
-//        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewId)
-//        recyclerView.layoutManager = LinearLayoutManager(this)
-//
-//        recyclerView.adapter =  PersonAdapter(PersonProvider.data)
+    val superHeroFirst = SuperHero("Kotlin", "Jetbrains", "pepe", "https:...")
+
+    private fun initRecyclerView(){
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerSuperHero)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter =  SuperHeroAdapter(SuperHeroProvider.superHeroList)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
